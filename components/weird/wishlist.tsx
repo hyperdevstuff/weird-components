@@ -32,7 +32,7 @@ export function MorphButton() {
     <div className="flex h-screen w-full items-center justify-center">
       <button
         onClick={play}
-        className="flex size-28 items-center justify-center rounded-2xl border border-border bg-card text-primary shadow-sm transition-transform hover:scale-105 active:scale-95"
+        className="cursor-pointer flex size-28 items-center justify-center rounded-2xl border border-border bg-card text-primary shadow-sm transition-transform hover:scale-105 active:scale-95"
       >
         <motion.svg
           width="80"
