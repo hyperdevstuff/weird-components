@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { AppSidebar } from "@/components/sidebar";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "weird/components",
-  description: "collection of weird & wonderful ui components",
+  title: "Weird Components",
+  description: "Collection of weird & trash ui components",
 };
 
 export default function RootLayout({
@@ -30,21 +30,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="flex h-screen w-full">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <SidebarProvider defaultOpen={false}>
             <AppSidebar />
-            <main className="flex-1 overflow-auto">
-              <div className="fixed top-4 right-4 z-50">
-                <ThemeToggle />
-              </div>
-              <div className="container py-8">{children}</div>
-            </main>
-          </div>
+            <main className="w-full">{children}</main>
+          </SidebarProvider>
         </ThemeProvider>
       </body>
     </html>
