@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Plus } from "lucide-react";
+import { Home, Plus, Activity, TrendingUp, MessageSquare } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -17,9 +17,29 @@ import {
 
 const components = [
   {
-    title: "Wishlist Button",
+    title: "Home",
     url: "/",
+    icon: Home,
+  },
+  {
+    title: "Wishlist Button",
+    url: "/wishlist",
     icon: Plus,
+  },
+  {
+    title: "Squiggly Slider",
+    url: "/squiggly-slider",
+    icon: Activity,
+  },
+  {
+    title: "Chart Button",
+    url: "/chart-button",
+    icon: TrendingUp,
+  },
+  {
+    title: "Bottom Bar",
+    url: "/bottom-bar",
+    icon: MessageSquare,
   },
 ];
 

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "WebSearch",
+      "Bash(bun run dev)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

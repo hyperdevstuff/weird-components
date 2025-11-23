@@ -1,7 +1,10 @@
 # Weird Components
 
+> NOTE: These components are WIP and vibe-coded — experimental and playful.
+
 Avaliable Components:
 - Wishlist Button
+--- 
 yet to build/import (figma/framer)
 - Squiggly Progress bar / Scrollbar / Slider
 - Chart from button up. 

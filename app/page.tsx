@@ -1,6 +1,30 @@
+import Link from "next/link";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { WishlistButton } from "@/components/weird/wishlist";
+import { ArrowRight } from "lucide-react";
+
+const components = [
+  {
+    name: "Wishlist Button",
+    description: "An animated plus-to-checkmark morphing button component",
+    href: "/wishlist",
+  },
+  {
+    name: "Squiggly Slider",
+    description: "A playful progress bar with squiggly animations",
+    href: "/squiggly-slider",
+  },
+  {
+    name: "Chart Button",
+    description: "Experimental chart that grows from a button (WIP)",
+    href: "/chart-button",
+  },
+  {
+    name: "Bottom Bar",
+    description: "Fixed bottom components like Ask AI (inspired by z.ai)",
+    href: "/bottom-bar",
+  },
+];
 
 export default function Home() {
   return (
@@ -14,98 +38,47 @@ export default function Home() {
 
       {/* content */}
       <div className="flex-1 overflow-auto">
-        <div className="container max-w-4xl mx-auto py-8 space-y-12">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tight">
-              wishlist button
+        <div className="container max-w-5xl mx-auto py-12 space-y-12">
+          <div className="space-y-4">
+            <h1 className="text-4xl font-bold tracking-tight">
+              Weird Components
             </h1>
-            <p className="text-muted-foreground">
-              animated plus-to-checkmark morphing button
+            <p className="text-xl text-muted-foreground max-w-2xl">
+              A collection of experimental and playful UI components. Copy,
+              paste, and customize to your needs.
             </p>
           </div>
 
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-xl font-semibold mb-4">preview</h2>
-              <div className="flex items-center justify-center border rounded-lg p-12 bg-card">
-                <WishlistButton />
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-semibold mb-4">installation</h2>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    install motion
+          <div className="grid gap-6 md:grid-cols-2">
+            {components.map((component) => (
+              <Link
+                key={component.name}
+                href={component.href}
+                className="group relative overflow-hidden rounded-lg border bg-card p-6 transition-all hover:shadow-lg hover:border-foreground/20"
+              >
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold group-hover:text-foreground transition-colors">
+                    {component.name}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {component.description}
                   </p>
-                  <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
-                    <code>npm install motion</code>
-                  </pre>
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground mb-2">
-                    copy component
-                  </p>
-                  <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
-                    <code>{`// components/ui/wishlist-button.tsx`}</code>
-                  </pre>
+                <div className="mt-4 flex items-center text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
+                  View component
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </div>
-              </div>
-            </div>
+              </Link>
+            ))}
+          </div>
 
-            <div>
-              <h2 className="text-xl font-semibold mb-4">usage</h2>
-              <pre className="bg-muted p-4 rounded-md overflow-x-auto text-sm">
-                <code>{`import { WishlistButton } from "@/components/ui/wishlist-button";
-
-export default function App() {
-  return <WishlistButton />;
-}`}</code>
-              </pre>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-semibold mb-4">variants</h2>
-              <div className="space-y-4">
-                <div className="flex items-center gap-8">
-                  <div className="flex items-center gap-4">
-                    <WishlistButton variant="default" />
-                    <code className="text-sm">variant=default</code>
-                  </div>
-                </div>
-                <div className="flex items-center gap-8">
-                  <div className="flex items-center gap-4">
-                    <WishlistButton variant="outline" />
-                    <code className="text-sm">variant=outline</code>
-                  </div>
-                </div>
-                <div className="flex items-center gap-8">
-                  <div className="flex items-center gap-4">
-                    <WishlistButton variant="ghost" />
-                    <code className="text-sm">variant=ghost</code>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-semibold mb-4">sizes</h2>
-              <div className="flex items-center gap-8">
-                <div className="flex items-center gap-4">
-                  <WishlistButton size="sm" />
-                  <code className="text-sm">size=sm</code>
-                </div>
-                <div className="flex items-center gap-4">
-                  <WishlistButton size="default" />
-                  <code className="text-sm">size=default</code>
-                </div>
-                <div className="flex items-center gap-4">
-                  <WishlistButton size="lg" />
-                  <code className="text-sm">size=lg</code>
-                </div>
-              </div>
-            </div>
+          <div className="rounded-lg border bg-muted/50 p-6">
+            <h2 className="text-lg font-semibold mb-2">About</h2>
+            <p className="text-sm text-muted-foreground">
+              These components are built with React, TypeScript, Tailwind CSS,
+              and Motion (Framer Motion). They&apos;re designed to be copied and
+              pasted into your projects - not installed as dependencies.
+            </p>
           </div>
         </div>
       </div>
